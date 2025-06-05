@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Waves – Problem 1 - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Waves \u2013 Problem 1";
         var mkdocs_page_input_path = "1 Physics/3 Waves/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -64,8 +64,20 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">3 Waves</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Waves – Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#interference-patterns-on-a-water-surface">Interference Patterns on a Water Surface</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#motivation">Motivation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#theoretical-foundation">Theoretical Foundation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#problem-statement">Problem Statement</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#python-simulation">Python Simulation</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +175,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">3 Waves</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Waves – Problem 1</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +183,95 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="waves-problem-1">Waves – Problem 1</h1>
+<h2 id="interference-patterns-on-a-water-surface">Interference Patterns on a Water Surface</h2>
+<hr/>
+<h3 id="motivation">Motivation</h3>
+<p>When waves from different sources <strong>overlap</strong>, they <strong>interfere</strong>, producing beautiful and informative <strong>interference patterns</strong>. On a <strong>water surface</strong>, this phenomenon is especially easy to observe:</p>
+<ul>
+<li><strong>Constructive interference</strong>: Waves <strong>reinforce</strong> each other.</li>
+<li><strong>Destructive interference</strong>: Waves <strong>cancel</strong> each other.</li>
+</ul>
+<p>Studying these patterns allows us to explore:</p>
+<ul>
+<li>Phase relationships  </li>
+<li>Wavefront interaction  </li>
+<li>The fundamentals of <strong>superposition</strong></li>
+</ul>
+<p>This problem provides a hands-on, visual way to understand key wave principles.</p>
+<hr/>
+<h3 id="theoretical-foundation">Theoretical Foundation</h3>
+<p>A <strong>circular wave</strong> from a point source located at <span class="arithmatex">\( \vec{r}_i \)</span> can be modeled as:</p>
+<div class="arithmatex">\[
+\eta_i(\vec{r}, t) = A \cdot \cos(k \cdot |\vec{r} - \vec{r}_i| - \omega t + \phi)
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\( \eta_i(\vec{r}, t) \)</span>: Displacement at position <span class="arithmatex">\( \vec{r} \)</span> and time <span class="arithmatex">\( t \)</span> </li>
+<li><span class="arithmatex">\( A \)</span>: Amplitude  </li>
+<li><span class="arithmatex">\( k = \frac{2\pi}{\lambda} \)</span>: Wave number  </li>
+<li><span class="arithmatex">\( \omega = 2\pi f \)</span>: Angular frequency  </li>
+<li><span class="arithmatex">\( \vec{r}_i \)</span>: Position of source <span class="arithmatex">\( i \)</span> </li>
+<li><span class="arithmatex">\( \phi \)</span>: Initial phase (can be taken as 0 for all sources)</li>
+</ul>
+<hr/>
+<h3 id="problem-statement">Problem Statement</h3>
+<p>Analyze the interference pattern from <strong>multiple point sources</strong> placed at the <strong>vertices of a regular polygon</strong>.</p>
+<h4 id="steps">Steps:</h4>
+<ol>
+<li><strong>Select a Regular Polygon</strong>: E.g., equilateral triangle, square, or pentagon.  </li>
+<li><strong>Position the Sources</strong>: Distribute them evenly around a circle.  </li>
+<li><strong>Construct Wave Equations</strong>: One for each source.  </li>
+<li><strong>Apply Superposition Principle</strong>:</li>
+</ol>
+<div class="arithmatex">\[
+\eta(\vec{r}, t) = \sum_{i=1}^N \eta_i(\vec{r}, t)
+\]</div>
+<ol>
+<li><strong>Visualize</strong>: At fixed time <span class="arithmatex">\( t \)</span>, compute and plot <span class="arithmatex">\( \eta(\vec{r}) \)</span> on a 2D grid.  </li>
+<li><strong>Interpret</strong>: Identify constructive and destructive regions.</li>
+</ol>
+<hr/>
+<h3 id="python-simulation">Python Simulation</h3>
+<h4 id="example-code-square-configuration">Example Code (Square Configuration)</h4>
+<p>```python
+import numpy as np
+import matplotlib.pyplot as plt</p>
+<h1 id="constants">Constants</h1>
+<p>A = 1.0            # amplitude
+wavelength = 1.0   # lambda
+frequency = 1.0    # f
+k = 2 * np.pi / wavelength
+omega = 2 * np.pi * frequency
+t = 0              # fixed time</p>
+<h1 id="source-positions-at-square-vertices">Source positions at square vertices</h1>
+<p>side = 2.0
+polygon_sides = 4
+radius = 1.0
+sources = [
+    (radius * np.cos(2<em>np.pi</em>i/polygon_sides),
+     radius * np.sin(2<em>np.pi</em>i/polygon_sides))
+    for i in range(polygon_sides)
+]</p>
+<h1 id="grid">Grid</h1>
+<p>res = 500
+x = np.linspace(-2, 2, res)
+y = np.linspace(-2, 2, res)
+X, Y = np.meshgrid(x, y)
+Z = np.zeros_like(X)</p>
+<h1 id="superposition">Superposition</h1>
+<p>for sx, sy in sources:
+    R = np.sqrt((X - sx)<strong>2 + (Y - sy)</strong>2)
+    Z += A * np.cos(k * R - omega * t)</p>
+<h1 id="plot">Plot</h1>
+<p>plt.figure(figsize=(8, 6))
+plt.contourf(X, Y, Z, levels=200, cmap='RdBu')
+plt.colorbar(label='Displacement η(x, y)')
+plt.title('Interference Pattern – Square Wave Sources')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.axis('equal')
+plt.show()</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
