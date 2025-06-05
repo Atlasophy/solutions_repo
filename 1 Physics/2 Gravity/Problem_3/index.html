@@ -172,6 +172,85 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-3">Problem 3</h1>
+<h1 id="mechanics-problem-3">Mechanics – Problem 3</h1>
+<h2 id="trajectories-of-a-freely-released-payload-near-earth">Trajectories of a Freely Released Payload Near Earth</h2>
+<hr/>
+<h3 id="motivation">Motivation</h3>
+<p>When a payload is released from a <strong>moving rocket near Earth</strong>, its future path is determined by:</p>
+<ul>
+<li>Its <strong>initial velocity</strong></li>
+<li>Its <strong>position</strong> relative to Earth</li>
+<li>The <strong>gravitational pull</strong> from Earth</li>
+</ul>
+<p>These trajectories may result in:</p>
+<ul>
+<li>Orbital insertion  </li>
+<li>Earth reentry  </li>
+<li>Complete escape from Earth’s gravity</li>
+</ul>
+<p>This analysis is crucial for space missions involving <strong>satellite deployment</strong>, <strong>reentry capsules</strong>, or <strong>interplanetary probes</strong>.</p>
+<hr/>
+<h3 id="theoretical-foundation">Theoretical Foundation</h3>
+<p>Use <strong>Newton’s Law of Gravitation</strong>:</p>
+<div class="arithmatex">\[
+F = \frac{G M m}{r^2}
+\]</div>
+<p>From Newton’s Second Law:</p>
+<div class="arithmatex">\[
+\vec{a} = - \frac{G M}{r^2} \cdot \hat{r}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\( G \)</span>: Gravitational constant  </li>
+<li><span class="arithmatex">\( M \)</span>: Mass of Earth  </li>
+<li><span class="arithmatex">\( r \)</span>: Distance from Earth’s center  </li>
+<li><span class="arithmatex">\( \vec{a} \)</span>: Acceleration due to gravity  </li>
+</ul>
+<hr/>
+<h3 id="possible-trajectories">Possible Trajectories</h3>
+<p>Depending on the <strong>total mechanical energy</strong> of the payload:</p>
+<ul>
+<li><strong>Elliptical Orbit</strong>: Bound trajectory (energy &lt; 0)</li>
+<li><strong>Parabolic Path</strong>: Critical escape condition (energy = 0)</li>
+<li><strong>Hyperbolic Path</strong>: Escape trajectory (energy &gt; 0)</li>
+</ul>
+<p>Specific energy <span class="arithmatex">\( \epsilon \)</span>:</p>
+<div class="arithmatex">\[
+\epsilon = \frac{v^2}{2} - \frac{G M}{r}
+\]</div>
+<hr/>
+<h3 id="numerical-simulation">Numerical Simulation</h3>
+<p>Simulate motion using numerical integration (e.g., <strong>Runge-Kutta 4th order</strong>) of the equations of motion in Cartesian coordinates:</p>
+<div class="arithmatex">\[
+\frac{d^2x}{dt^2} = - \frac{G M x}{(x^2 + y^2)^{3/2}} \\
+\frac{d^2y}{dt^2} = - \frac{G M y}{(x^2 + y^2)^{3/2}}
+\]</div>
+<hr/>
+<h4 id="example-python-concept">Example Python (Concept):</h4>
+<p>```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import solve_ivp</p>
+<p>G = 6.67430e-11
+M = 5.972e24</p>
+<p>def equations(t, y):
+    x, vx, y_, vy = y
+    r = np.sqrt(x<strong>2 + y_</strong>2)
+    ax = -G * M * x / r<strong>3
+    ay = -G * M * y_ / r</strong>3
+    return [vx, ax, vy, ay]</p>
+<h1 id="initial-conditions">Initial conditions</h1>
+<p>r0 = 7e6  # 700 km altitude
+v0 = 7500  # initial velocity
+y0 = [r0, 0, 0, v0]</p>
+<p>sol = solve_ivp(equations, [0, 10000], y0, max_step=1)</p>
+<p>plt.plot(sol.y[0], sol.y[2])
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Trajectory of Released Payload")
+plt.axis('equal')
+plt.grid(True)
+plt.show()</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
