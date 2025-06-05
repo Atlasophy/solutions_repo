@@ -5,7 +5,7 @@
 
 ---
 
-### 🎯 Motivation
+###  Motivation
 
 The acceleration due to gravity \( g \) is a **universal physical constant** influencing all falling objects. A **simple pendulum** provides a time-tested method for measuring local \( g \), offering an opportunity to:
 
@@ -17,9 +17,9 @@ This activity emphasizes precision, statistical analysis, and the **real-world c
 
 ---
 
-## 🧪 Procedure
+##  Procedure
 
-### 1️⃣ Materials
+### 1 Materials
 
 - A string (1–1.5 meters)
 - Small mass (e.g., keys, weight, sugar bag)
@@ -28,7 +28,7 @@ This activity emphasizes precision, statistical analysis, and the **real-world c
 
 ---
 
-### 2️⃣ Setup
+### 2 Setup
 
 - Suspend the pendulum from a fixed support
 - Measure pendulum **length** \( L \) from the suspension point to the **center of mass**
@@ -42,14 +42,14 @@ This activity emphasizes precision, statistical analysis, and the **real-world c
 
 ---
 
-### 3️⃣ Data Collection
+### 3 Data Collection
 
 - Displace pendulum <15° (small angle approximation)
 - Measure time for **10 full oscillations**, repeat **10 times**
 
 ---
 
-### 📋 Example Data Table
+###  Example Data Table
 
 | Trial | Time for 10 Oscillations \( t_{10} \) [s] |
 |-------|--------------------------------------------|
@@ -66,9 +66,9 @@ This activity emphasizes precision, statistical analysis, and the **real-world c
 
 ---
 
-## 🧮 Calculations
+##  Calculations
 
-### 1️⃣ Mean and Standard Deviation
+### 1 Mean and Standard Deviation
 
 Let:
 - \( \overline{t_{10}} \): Mean time for 10 oscillations  
@@ -88,7 +88,7 @@ Then:
 
 ---
 
-### 2️⃣ Determining \( g \)
+### 2 Determining \( g \)
 
 The pendulum period equation:
 
@@ -98,7 +98,7 @@ $$
 
 ---
 
-### 3️⃣ Uncertainty in \( g \)
+### 3 Uncertainty in \( g \)
 
 Using uncertainty propagation:
 
@@ -108,7 +108,7 @@ $$
 
 ---
 
-## 📊 Example Results
+##  Example Results
 
 Assume:
 
@@ -129,16 +129,16 @@ $$
 
 ---
 
-## 📌 Analysis
+##  Analysis
 
-### ✅ Comparison
+###  Comparison
 
 - Standard \( g = 9.80665 \, \text{m/s}^2 \)
 - Deviation is within expected uncertainty bounds
 
 ---
 
-### 🧠 Discussion
+###  Discussion
 
 - **Resolution effect**: Coarse measuring tools increase \( u_L \), thus increasing \( u_g \)
 - **Timing variability**: Manual stopwatch leads to uncertainty in \( T \)
@@ -148,16 +148,16 @@ $$
 
 ---
 
-## 📦 Deliverables
+##  Deliverables
 
-### ✅ Markdown Output:
+###  Markdown Output:
 
 - 📊 Table with raw data \( t_{10} \)  
 - 📉 Calculated:
   - \( T \), \( u_T \), \( g \), \( u_g \)  
 - 📈 Final result with uncertainty
 
-### ✅ Interpretation:
+###  Interpretation:
 
 - Comparison with standard gravity  
 - Discussion on uncertainty sources  
@@ -165,7 +165,7 @@ $$
 
 ---
 
-## 💡 Hints & Extensions
+##  Hints & Extensions
 
 - Try different lengths to test \( T \propto \sqrt{L} \)  
 - Plot \( T^2 \) vs \( L \) and fit a line to estimate \( g \)  
