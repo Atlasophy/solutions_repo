@@ -50,23 +50,21 @@
 <ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="#investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#motivation">🎯 Motivation</a>
+<li class="toctree-l4"><a class="reference internal" href="#motivation">Motivation</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#theoretical-foundation">📐 Theoretical Foundation</a>
+<li class="toctree-l4"><a class="reference internal" href="#theoretical-foundation">Theoretical Foundation</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#time-of-flight-t">⏱ Time of Flight (T)</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#range-r">📏 Range (R)</a>
+<li class="toctree-l4"><a class="reference internal" href="#range-r">Range (R)</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#analysis-of-the-range">📊 Analysis of the Range</a>
+<li class="toctree-l4"><a class="reference internal" href="#analysis-of-the-range">Analysis of the Range</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#practical-applications">🌍 Practical Applications</a>
+<li class="toctree-l4"><a class="reference internal" href="#practical-applications">Practical Applications</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#limitations-and-extensions">⚠️ Limitations and Extensions</a>
+<li class="toctree-l4"><a class="reference internal" href="#limitations-and-extensions">Limitations and Extensions</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#3d-simulation-and-visualization">🧪 3D Simulation and Visualization</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#deliverables">🗂️ Deliverables</a>
+<li class="toctree-l4"><a class="reference internal" href="#3d-simulation-and-visualization">3D Simulation and Visualization</a>
 </li>
 </ul>
 </li>
@@ -193,15 +191,14 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<p>İşte “Projectile Motion: Investigating the Range as a Function of the Angle of Projection” başlıklı problemi, tüm bölümleriyle birlikte Markdown + MathJax uyumlu HTML formatında yazılmış hali. Bu dosyayı doğrudan GitHub Pages, Jupyter Notebook veya Markdown destekli bir bloga ekleyebilirsin.</p>
 <p>⸻</p>
 <h1 id="mechanics-problem-1">Mechanics – Problem 1</h1>
 <h2 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h2>
 <hr/>
-<h3 id="motivation">🎯 Motivation</h3>
+<h3 id="motivation">Motivation</h3>
 <p>Projectile motion demonstrates key physical principles through accessible equations. The relationship between range and angle is <strong>non-linear</strong> and highly <strong>sensitive</strong> to parameters like <strong>initial speed</strong> and <strong>gravity</strong>. By analyzing this systematically, we reveal how small changes in conditions lead to drastically different outcomes — useful in sports, engineering, and military contexts.</p>
 <hr/>
-<h3 id="theoretical-foundation">📐 Theoretical Foundation</h3>
+<h3 id="theoretical-foundation">Theoretical Foundation</h3>
 <p>From <strong>Newton’s Second Law</strong>, the motion of a projectile (ignoring air resistance) is described by:</p>
 <ul>
 <li><strong>Horizontal motion:</strong></li>
@@ -222,49 +219,40 @@
 T = \frac{2 v_0 \cdot \sin(\theta)}{g}
 \]</div>
 <hr/>
-<h3 id="range-r">📏 Range (R)</h3>
+<h3 id="range-r">Range (R)</h3>
 <p>Substitute <span class="arithmatex">\( T \)</span> into the horizontal position equation:</p>
 <div class="arithmatex">\[
 R = v_0 \cdot \cos(\theta) \cdot T = \frac{v_0^2 \cdot \sin(2\theta)}{g}
 \]</div>
 <hr/>
-<h3 id="analysis-of-the-range">📊 Analysis of the Range</h3>
+<h3 id="analysis-of-the-range">Analysis of the Range</h3>
 <ul>
 <li>For a fixed <span class="arithmatex">\( v_0 \)</span> and <span class="arithmatex">\( g \)</span>, the range is <strong>symmetric</strong> around <span class="arithmatex">\( \theta = 45^\circ \)</span>.</li>
 <li>Increasing initial velocity <span class="arithmatex">\( v_0 \)</span> <strong>quadratically increases</strong> the range.</li>
 <li>Higher gravitational acceleration <span class="arithmatex">\( g \)</span> <strong>reduces</strong> the range.</li>
 </ul>
 <hr/>
-<h3 id="practical-applications">🌍 Practical Applications</h3>
+<h3 id="practical-applications">Practical Applications</h3>
 <ul>
 <li><strong>Sports</strong>: Optimizing throw angles in javelin, football, or basketball.</li>
 <li><strong>Military</strong>: Calculating artillery or missile trajectories.</li>
 <li><strong>Engineering</strong>: Drone launches, rocket design, ballistic modeling.</li>
 </ul>
 <hr/>
-<h3 id="limitations-and-extensions">⚠️ Limitations and Extensions</h3>
+<h3 id="limitations-and-extensions">Limitations and Extensions</h3>
 <ul>
 <li><strong>Air Resistance</strong>: Reduces range and shifts the optimal angle <strong>below 45°</strong>.</li>
 <li><strong>Uneven Terrain</strong>: Requires solving with a <strong>non-zero final height</strong>.</li>
 <li><strong>Wind Effects</strong>: Add lateral and vertical components that require solving <strong>differential equations</strong>.</li>
 </ul>
 <hr/>
-<h3 id="3d-simulation-and-visualization">🧪 3D Simulation and Visualization</h3>
+<h3 id="3d-simulation-and-visualization">3D Simulation and Visualization</h3>
 <ul>
 <li>The range can be visualized as a function of the launch angle <span class="arithmatex">\( \theta \)</span> using simulations.</li>
 <li>2D plots with <code>matplotlib</code> or 3D simulations using <code>plotly</code> or <code>vpython</code> can illustrate this.</li>
 <li>Example plots: <strong>Range vs. Angle</strong> for different initial speeds.</li>
 </ul>
 <hr/>
-<h3 id="deliverables">🗂️ Deliverables</h3>
-<ul>
-<li>📄 A Markdown or HTML document with theory, equations, and explanation.</li>
-<li>💻 Python simulation script for projectile motion.</li>
-<li>📈 Graphs showing how the range changes with angle and velocity.</li>
-<li>🧠 Discussion on limitations and how to improve the model (e.g., air resistance, terrain).</li>
-</ul>
-<hr/>
-<p>⸻</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
