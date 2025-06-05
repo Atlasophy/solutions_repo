@@ -172,6 +172,94 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="electromagnetism-problem-1">Electromagnetism – Problem 1</h1>
+<h2 id="simulating-the-effects-of-the-lorentz-force">Simulating the Effects of the Lorentz Force</h2>
+<hr/>
+<h3 id="motivation">Motivation</h3>
+<p>The <strong>Lorentz Force</strong>, defined by:</p>
+<div class="arithmatex">\[
+\vec{F} = q (\vec{E} + \vec{v} \times \vec{B})
+\]</div>
+<p>is the fundamental law governing the motion of <strong>charged particles</strong> in <strong>electric</strong> and <strong>magnetic fields</strong>.</p>
+<p>This concept is crucial in:</p>
+<ul>
+<li>Particle accelerators (e.g., cyclotrons, synchrotrons)  </li>
+<li>Mass spectrometers  </li>
+<li>Astrophysics and cosmic ray deflection  </li>
+<li>Plasma confinement in fusion reactors</li>
+</ul>
+<p>Simulation offers an intuitive way to visualize these effects and better understand real-world applications.</p>
+<hr/>
+<h2 id="1-exploration-of-applications">1 Exploration of Applications</h2>
+<h3 id="real-world-systems">Real-World Systems</h3>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Role of Lorentz Force</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Particle Accelerators</td>
+<td>Guides particles in circular paths with magnets</td>
+</tr>
+<tr>
+<td>Mass Spectrometers</td>
+<td>Separates ions by mass/charge ratio using <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span></td>
+</tr>
+<tr>
+<td>Magnetic Traps</td>
+<td>Constrains plasma particles using magnetic mirrors</td>
+</tr>
+<tr>
+<td>Earth’s Magnetosphere</td>
+<td>Deflects charged cosmic particles</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="2-simulating-particle-motion">2 Simulating Particle Motion</h2>
+<p>We solve Newton’s second law for a charged particle:</p>
+<div class="arithmatex">\[
+m \frac{d\vec{v}}{dt} = q (\vec{E} + \vec{v} \times \vec{B})
+\]</div>
+<p>Numerical integration (e.g., Euler, Runge-Kutta) allows us to simulate:</p>
+<ul>
+<li>Motion in uniform <span class="arithmatex">\( \vec{B} \)</span>-field  </li>
+<li>Motion in uniform <span class="arithmatex">\( \vec{E} \)</span>-field  </li>
+<li>Crossed <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span> fields</li>
+</ul>
+<hr/>
+<h3 id="python-implementation-basic-case">Python Implementation (Basic Case)</h3>
+<p>```python
+import numpy as np
+import matplotlib.pyplot as plt</p>
+<h1 id="constants">Constants</h1>
+<p>q = 1.6e-19     # charge (C)
+m = 9.1e-31     # mass (kg)
+B = np.array([0, 0, 1])     # uniform magnetic field
+E = np.array([0, 0, 0])     # electric field</p>
+<h1 id="initial-conditions">Initial conditions</h1>
+<p>v = np.array([1e5, 0, 0])
+r = np.array([0, 0, 0])
+dt = 1e-11
+steps = 1000</p>
+<p>trajectory = []</p>
+<p>for _ in range(steps):
+    F = q * (E + np.cross(v, B))
+    a = F / m
+    v += a * dt
+    r += v * dt
+    trajectory.append(r.copy())</p>
+<p>trajectory = np.array(trajectory)
+plt.plot(trajectory[:,0], trajectory[:,1])
+plt.xlabel("x (m)")
+plt.ylabel("y (m)")
+plt.title("Charged Particle in Uniform Magnetic Field")
+plt.axis('equal')
+plt.grid(True)
+plt.show()</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
