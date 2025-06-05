@@ -1,4 +1,4 @@
-İşte “Projectile Motion: Investigating the Range as a Function of the Angle of Projection” başlıklı problemi, tüm bölümleriyle birlikte Markdown + MathJax uyumlu HTML formatında yazılmış hali. Bu dosyayı doğrudan GitHub Pages, Jupyter Notebook veya Markdown destekli bir bloga ekleyebilirsin.
+
 
 ⸻
 
@@ -9,13 +9,13 @@
 
 ---
 
-### 🎯 Motivation
+###  Motivation
 
 Projectile motion demonstrates key physical principles through accessible equations. The relationship between range and angle is **non-linear** and highly **sensitive** to parameters like **initial speed** and **gravity**. By analyzing this systematically, we reveal how small changes in conditions lead to drastically different outcomes — useful in sports, engineering, and military contexts.
 
 ---
 
-### 📐 Theoretical Foundation
+###  Theoretical Foundation
 
 From **Newton’s Second Law**, the motion of a projectile (ignoring air resistance) is described by:
 
@@ -43,7 +43,7 @@ $$
 
 ---
 
-### 📏 Range (R)
+###  Range (R)
 
 Substitute \( T \) into the horizontal position equation:
 
@@ -53,7 +53,7 @@ $$
 
 ---
 
-### 📊 Analysis of the Range
+###  Analysis of the Range
 
 - For a fixed \( v_0 \) and \( g \), the range is **symmetric** around \( \theta = 45^\circ \).
 - Increasing initial velocity \( v_0 \) **quadratically increases** the range.
@@ -61,7 +61,7 @@ $$
 
 ---
 
-### 🌍 Practical Applications
+###  Practical Applications
 
 - **Sports**: Optimizing throw angles in javelin, football, or basketball.
 - **Military**: Calculating artillery or missile trajectories.
@@ -69,7 +69,7 @@ $$
 
 ---
 
-### ⚠️ Limitations and Extensions
+###  Limitations and Extensions
 
 - **Air Resistance**: Reduces range and shifts the optimal angle **below 45°**.
 - **Uneven Terrain**: Requires solving with a **non-zero final height**.
@@ -77,7 +77,7 @@ $$
 
 ---
 
-### 🧪 3D Simulation and Visualization
+###  3D Simulation and Visualization
 
 - The range can be visualized as a function of the launch angle \( \theta \) using simulations.
 - 2D plots with `matplotlib` or 3D simulations using `plotly` or `vpython` can illustrate this.
@@ -85,15 +85,7 @@ $$
 
 ---
 
-### 🗂️ Deliverables
-
-- 📄 A Markdown or HTML document with theory, equations, and explanation.
-- 💻 Python simulation script for projectile motion.
-- 📈 Graphs showing how the range changes with angle and velocity.
-- 🧠 Discussion on limitations and how to improve the model (e.g., air resistance, terrain).
-
----
 
 
-⸻
+
 
