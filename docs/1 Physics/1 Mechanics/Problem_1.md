@@ -10,43 +10,43 @@ Projectile motion occurs under the influence of gravity, with no horizontal acce
 
 - **Coordinate System**: Define $ x $-axis as horizontal and $ y $-axis as vertical (positive upward). Gravity acts in the negative $ y $-direction with acceleration $ g \approx 9.8 \, \text{m/s}^2 $.
 - **Initial Conditions**: The projectile is launched from position $ (x_0, y_0) $ with initial velocity $ v_0 $ at an angle $ \theta $ from the horizontal. The initial velocity components are:
-  $
+  $$
   v_{0x} = v_0 \cos \theta, \quad v_{0y} = v_0 \sin \theta
-  $
+  $$
 
 #### Horizontal Motion
 No forces act in the $ x $-direction, so acceleration $ a_x = 0 $. The differential equation is:
-$
+$$
 \frac{d^2 x}{dt^2} = 0
-$
+$$
 Integrating:
-$
+$$
 v_x = \frac{dx}{dt} = v_{0x} = v_0 \cos \theta
-$
-$
+$$
+$$
 x(t) = x_0 + (v_0 \cos \theta) t
-$
+$$
 Assuming $ x_0 = 0 $:
-$
+$$
 x(t) = (v_0 \cos \theta) t
-$
+$$
 
 #### Vertical Motion
 Gravity causes acceleration $ a_y = -g $. The differential equation is:
-$
+$$
 \frac{d^2 y}{dt^2} = -g
-$
+$$
 Integrating:
-$
+$$
 v_y = \frac{dy}{dt} = v_{0y} - g t = v_0 \sin \theta - g t
-$
-$
+$$
+$$
 y(t) = y_0 + (v_0 \sin \theta) t - \frac{1}{2} g t^2
-$
+$$
 Assuming $ y_0 = 0 $ (ground level unless specified):
-$
+$$
 y(t) = (v_0 \sin \theta) t - \frac{1}{2} g t^2
-$
+$$
 
 ### Family of Solutions
 The equations $ x(t) $ and $ y(t) $ describe a parabola parameterized by time $ t $. The trajectory depends on:
@@ -56,12 +56,12 @@ The equations $ x(t) $ and $ y(t) $ describe a parabola parameterized by time $ 
 - **Gravitational acceleration $ g $**: Affects the curvature (smaller $ g $, as on the Moon, stretches the parabola).
 
 Eliminating $ t $ from the equations gives the trajectory:
-$
+$$
 t = \frac{x}{v_0 \cos \theta}
-$
-$
+$$
+$$
 y(x) = x \tan \theta - \frac{g x^2}{2 v_0^2 \cos^2 \theta}
-$
+$$
 This is the equation of a parabola, with variations in $ v_0 $, $ \theta $, $ y_0 $, and $ g $ producing a family of trajectories.
 
 ---
@@ -70,16 +70,16 @@ This is the equation of a parabola, with variations in $ v_0 $, $ \theta $, $ y_
 
 ### Range as a Function of Angle
 The range $ R $ is the horizontal distance when the projectile returns to $ y = 0 $. Set $ y(t) = 0 $:
-$
+$$
 0 = (v_0 \sin \theta) t - \frac{1}{2} g t^2
-$
-$
+$$
+$$
 t (v_0 \sin \theta - \frac{1}{2} g t) = 0
-$
+$$
 Solutions: $ t = 0 $ (launch) or $ t = \frac{2 v_0 \sin \theta}{g} $ (landing). The range is:
-$
+$$
 R = x(t) = (v_0 \cos \theta) \cdot \frac{2 v_0 \sin \theta}{g} = \frac{v_0^2 \sin 2\theta}{g}
-$
+$$
 Using the identity $ \sin 2\theta = 2 \sin \theta \cos \theta $, the range depends on:
 - **Angle $ \theta $**: The term $ \sin 2\theta $ is maximized when $ 2\theta = 90^\circ $, so $ \theta = 45^\circ $, giving $ R_{\text{max}} = \frac{v_0^2}{g} $.
 - **Initial velocity $ v_0 $**: Range scales with $ v_0^2 $.
