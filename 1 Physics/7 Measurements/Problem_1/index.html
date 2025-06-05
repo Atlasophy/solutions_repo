@@ -172,6 +172,184 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="experimental-physics-problem-1">Experimental Physics – Problem 1</h1>
+<h2 id="measuring-earths-gravitational-acceleration-with-a-pendulum">Measuring Earth’s Gravitational Acceleration with a Pendulum</h2>
+<hr/>
+<h3 id="motivation">🎯 Motivation</h3>
+<p>The acceleration due to gravity <span class="arithmatex">\( g \)</span> is a <strong>universal physical constant</strong> influencing all falling objects. A <strong>simple pendulum</strong> provides a time-tested method for measuring local <span class="arithmatex">\( g \)</span>, offering an opportunity to:</p>
+<ul>
+<li>Apply experimental methods  </li>
+<li>Perform <strong>uncertainty analysis</strong> </li>
+<li>Compare with theoretical standards</li>
+</ul>
+<p>This activity emphasizes precision, statistical analysis, and the <strong>real-world challenges</strong> of measurement.</p>
+<hr/>
+<h2 id="procedure">🧪 Procedure</h2>
+<h3 id="1-materials">1️⃣ Materials</h3>
+<ul>
+<li>A string (1–1.5 meters)</li>
+<li>Small mass (e.g., keys, weight, sugar bag)</li>
+<li>Stopwatch or smartphone timer</li>
+<li>Measuring tape or ruler (noting resolution)</li>
+</ul>
+<hr/>
+<h3 id="2-setup">2️⃣ Setup</h3>
+<ul>
+<li>Suspend the pendulum from a fixed support</li>
+<li>Measure pendulum <strong>length</strong> <span class="arithmatex">\( L \)</span> from the suspension point to the <strong>center of mass</strong></li>
+<li>Record:</li>
+<li>Measured <span class="arithmatex">\( L \)</span></li>
+<li>Tool resolution <span class="arithmatex">\( \delta L_{\text{res}} \)</span></li>
+<li>Uncertainty in length:<br/>
+    $$
+    u_L = \frac{\delta L_{\text{res}}}{2}
+    $$</li>
+</ul>
+<hr/>
+<h3 id="3-data-collection">3️⃣ Data Collection</h3>
+<ul>
+<li>Displace pendulum &lt;15° (small angle approximation)</li>
+<li>Measure time for <strong>10 full oscillations</strong>, repeat <strong>10 times</strong></li>
+</ul>
+<hr/>
+<h3 id="example-data-table">📋 Example Data Table</h3>
+<table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Time for 10 Oscillations <span class="arithmatex">\( t_{10} \)</span> [s]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>20.12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20.08</td>
+</tr>
+<tr>
+<td>3</td>
+<td>20.15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>20.05</td>
+</tr>
+<tr>
+<td>5</td>
+<td>20.10</td>
+</tr>
+<tr>
+<td>6</td>
+<td>20.13</td>
+</tr>
+<tr>
+<td>7</td>
+<td>20.09</td>
+</tr>
+<tr>
+<td>8</td>
+<td>20.14</td>
+</tr>
+<tr>
+<td>9</td>
+<td>20.07</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20.11</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="calculations">🧮 Calculations</h2>
+<h3 id="1-mean-and-standard-deviation">1️⃣ Mean and Standard Deviation</h3>
+<p>Let:
+- <span class="arithmatex">\( \overline{t_{10}} \)</span>: Mean time for 10 oscillations<br/>
+- <span class="arithmatex">\( s_{t_{10}} \)</span>: Standard deviation of <span class="arithmatex">\( t_{10} \)</span><br/>
+- <span class="arithmatex">\( n = 10 \)</span>: Number of trials</p>
+<p>Then:
+- Mean time for <strong>1 oscillation</strong> (period):
+  $$
+  T = \frac{\overline{t_{10}}}{10}
+  $$</p>
+<ul>
+<li>Uncertainty in mean:
+  $$
+  u_T = \frac{s_{t_{10}}}{10 \sqrt{n}}
+  $$</li>
+</ul>
+<hr/>
+<h3 id="2-determining-g">2️⃣ Determining <span class="arithmatex">\( g \)</span></h3>
+<p>The pendulum period equation:</p>
+<div class="arithmatex">\[
+T = 2\pi \sqrt{\frac{L}{g}} \Rightarrow g = \frac{4\pi^2 L}{T^2}
+\]</div>
+<hr/>
+<h3 id="3-uncertainty-in-g">3️⃣ Uncertainty in <span class="arithmatex">\( g \)</span></h3>
+<p>Using uncertainty propagation:</p>
+<div class="arithmatex">\[
+u_g = g \cdot \sqrt{\left(\frac{u_L}{L}\right)^2 + \left(2 \cdot \frac{u_T}{T}\right)^2}
+\]</div>
+<hr/>
+<h2 id="example-results">📊 Example Results</h2>
+<p>Assume:</p>
+<ul>
+<li><span class="arithmatex">\( L = 1.000 \, \text{m} \pm 0.005 \, \text{m} \)</span> </li>
+<li><span class="arithmatex">\( \overline{t_{10}} = 20.10 \, \text{s} \Rightarrow T = 2.010 \, \text{s} \)</span> </li>
+<li><span class="arithmatex">\( s_{t_{10}} = 0.03 \Rightarrow u_T = 0.00095 \, \text{s} \)</span></li>
+</ul>
+<p>Then:</p>
+<ul>
+<li><span class="arithmatex">\( g = \frac{4 \pi^2 \cdot 1.000}{2.010^2} \approx 9.78 \, \text{m/s}^2 \)</span> </li>
+<li><span class="arithmatex">\( u_g \approx 0.08 \, \text{m/s}^2 \)</span></li>
+</ul>
+<p>Final Result:</p>
+<div class="arithmatex">\[
+g = 9.78 \pm 0.08 \, \text{m/s}^2
+\]</div>
+<hr/>
+<h2 id="analysis">📌 Analysis</h2>
+<h3 id="comparison">✅ Comparison</h3>
+<ul>
+<li>Standard <span class="arithmatex">\( g = 9.80665 \, \text{m/s}^2 \)</span></li>
+<li>Deviation is within expected uncertainty bounds</li>
+</ul>
+<hr/>
+<h3 id="discussion">🧠 Discussion</h3>
+<ul>
+<li><strong>Resolution effect</strong>: Coarse measuring tools increase <span class="arithmatex">\( u_L \)</span>, thus increasing <span class="arithmatex">\( u_g \)</span></li>
+<li><strong>Timing variability</strong>: Manual stopwatch leads to uncertainty in <span class="arithmatex">\( T \)</span></li>
+<li><strong>Experimental assumptions</strong>:</li>
+<li>Small angle approximation valid only for θ &lt; 15°</li>
+<li>Neglects air resistance and friction</li>
+</ul>
+<hr/>
+<h2 id="deliverables">📦 Deliverables</h2>
+<h3 id="markdown-output">✅ Markdown Output:</h3>
+<ul>
+<li>📊 Table with raw data <span class="arithmatex">\( t_{10} \)</span> </li>
+<li>📉 Calculated:</li>
+<li><span class="arithmatex">\( T \)</span>, <span class="arithmatex">\( u_T \)</span>, <span class="arithmatex">\( g \)</span>, <span class="arithmatex">\( u_g \)</span> </li>
+<li>📈 Final result with uncertainty</li>
+</ul>
+<h3 id="interpretation">✅ Interpretation:</h3>
+<ul>
+<li>Comparison with standard gravity  </li>
+<li>Discussion on uncertainty sources  </li>
+<li>Suggestions for improvement (e.g., photogates, longer pendulums)</li>
+</ul>
+<hr/>
+<h2 id="hints-extensions">💡 Hints &amp; Extensions</h2>
+<ul>
+<li>Try different lengths to test <span class="arithmatex">\( T \propto \sqrt{L} \)</span> </li>
+<li>Plot <span class="arithmatex">\( T^2 \)</span> vs <span class="arithmatex">\( L \)</span> and fit a line to estimate <span class="arithmatex">\( g \)</span> </li>
+<li>Use statistical tools (e.g., <code>numpy.std</code>, <code>scipy.stats.sem</code>)  </li>
+<li>Repeat with a digital timer for more precision</li>
+</ul>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
