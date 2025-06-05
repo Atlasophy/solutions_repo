@@ -1,29 +1,44 @@
-Problem 1: Investigating the Range as a Function of the Angle of Projection
+# Projectile Motion Analysis: Range vs Angle of Projection
 
-Objective:
+import numpy as np
+import matplotlib.pyplot as plt
 
-Analyze how the horizontal range of a projectile depends on its angle of projection, considering various initial conditions.
+# Constants
+g = 9.81  # gravitational acceleration (m/s^2)
+v0 = 20.0  # initial velocity (m/s)
+h = 0  # launch height (m)
 
-Tasks:
-	1.	Theoretical Foundation:
-	•	Derive the equations of motion for projectile motion without air resistance.
-	•	Express the horizontal range R as a function of the launch angle \theta, initial speed v_0, and gravitational acceleration g.
-	2.	Analysis of the Range:
-	•	Determine the angle \theta that yields the maximum range.
-	•	Explore how variations in v_0 and g affect the range.
-	3.	Practical Applications:
-	•	Discuss real-world scenarios where projectile motion is applicable.
-	•	Consider factors like uneven terrain or air resistance and how they modify the idealized model.
-	4.	Implementation:
-	•	Develop a Python script to simulate projectile motion.
-	•	Generate plots showing the range as a function of the launch angle for different initial speeds.
+# Function to calculate range given angle (in degrees)
+def calculate_range(theta_deg):
+    theta_rad = np.radians(theta_deg)
+    range_ = (v0**2 * np.sin(2 * theta_rad)) / g
+    return range_
 
-Deliverables:
-	•	A Markdown document (README.md) containing:
-	•	Theoretical derivations.
-	•	Explanations of the simulation results.
-	•	Discussions on practical applications and model limitations.
-	•	A Python script (projectile_motion.py) that:
-	•	Calculates the range for various launch angles.
-	•	Plots range vs. angle graphs.
-	•	Visualizations (e.g., PNG images) of the plots generated.
+# Angles from 0 to 90 degrees
+angles = np.linspace(0, 90, 500)
+ranges = calculate_range(angles)
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(angles, ranges)
+plt.title("Projectile Range as a Function of Launch Angle")
+plt.xlabel("Angle of Projection (degrees)")
+plt.ylabel("Range (m)")
+plt.grid(True)
+plt.show()
+
+# Observations and Limitations
+print("""
+Observations:
+- The range is maximum at 45 degrees for symmetric launch and landing.
+- The range is zero at 0° and 90°.
+
+Limitations:
+- Assumes no air resistance.
+- Assumes flat horizontal landing height.
+- For uneven terrain or different launch/landing heights, more complex models are needed.
+
+Next Steps:
+- Extend to include launch height effects.
+- Incorporate air resistance using numerical simulation (e.g., Euler method).
+""")
