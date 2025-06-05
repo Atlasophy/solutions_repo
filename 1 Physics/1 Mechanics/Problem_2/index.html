@@ -172,6 +172,101 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
+<h1 id="mechanics-problem-2">Mechanics – Problem 2</h1>
+<h2 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h2>
+<hr/>
+<h3 id="motivation">Motivation</h3>
+<p>The <strong>forced damped pendulum</strong> is a captivating example of a physical system with rich and intricate behavior resulting from the interplay of <strong>damping</strong>, <strong>restoring forces</strong>, and <strong>external driving forces</strong>.</p>
+<p>Introducing both damping and external periodic forcing transforms the system from simple harmonic motion into a variety of dynamic behaviors:</p>
+<ul>
+<li>Resonance  </li>
+<li>Quasiperiodicity  </li>
+<li>Chaos  </li>
+</ul>
+<p>These phenomena are foundational in understanding complex systems such as <strong>driven oscillators</strong>, <strong>climate models</strong>, and <strong>mechanical structures under stress</strong>.</p>
+<p>By systematically varying parameters like <strong>driving amplitude</strong> and <strong>driving frequency</strong>, the pendulum can demonstrate:</p>
+<ul>
+<li>Periodic oscillations  </li>
+<li>Chaotic motion  </li>
+<li>Synchronization phenomena  </li>
+</ul>
+<p>This problem provides insights into <strong>energy harvesting</strong>, <strong>vibration isolation</strong>, and <strong>mechanical resonance</strong>.</p>
+<hr/>
+<h3 id="theoretical-foundation">Theoretical Foundation</h3>
+<p>Start with the <strong>differential equation</strong> governing the motion of a forced damped pendulum:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2 \sin(\theta) = A \cos(\omega t)
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\( \theta \)</span>: Angular displacement  </li>
+<li><span class="arithmatex">\( \gamma \)</span>: Damping coefficient  </li>
+<li><span class="arithmatex">\( \omega_0 \)</span>: Natural angular frequency  </li>
+<li><span class="arithmatex">\( A \)</span>: Driving amplitude  </li>
+<li><span class="arithmatex">\( \omega \)</span>: Driving angular frequency  </li>
+</ul>
+<hr/>
+<h4 id="small-angle-approximation">Small-Angle Approximation</h4>
+<p>For small <span class="arithmatex">\( \theta \)</span>, we can use <span class="arithmatex">\( \sin(\theta) \approx \theta \)</span>, giving a linearized equation:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + \gamma \frac{d\theta}{dt} + \omega_0^2 \theta = A \cos(\omega t)
+\]</div>
+<hr/>
+<h4 id="resonance-condition">Resonance Condition</h4>
+<p>Resonance occurs when the driving frequency <span class="arithmatex">\( \omega \)</span> is close to the natural frequency <span class="arithmatex">\( \omega_0 \)</span>, especially for small damping. This causes large amplitude oscillations and significant energy absorption.</p>
+<hr/>
+<h3 id="analysis-of-dynamics">Analysis of Dynamics</h3>
+<p>Explore how the system behaves under changes in:</p>
+<ul>
+<li><strong>Damping coefficient <span class="arithmatex">\( \gamma \)</span></strong> </li>
+<li><strong>Driving amplitude <span class="arithmatex">\( A \)</span></strong> </li>
+<li><strong>Driving frequency <span class="arithmatex">\( \omega \)</span></strong> </li>
+</ul>
+<p>Phenomena to observe:</p>
+<ul>
+<li>Regular periodic motion  </li>
+<li>Quasiperiodic states  </li>
+<li>Onset of <strong>chaos</strong> </li>
+<li>Bifurcations in response to parameter variation  </li>
+</ul>
+<hr/>
+<h3 id="practical-applications">Practical Applications</h3>
+<ul>
+<li><strong>Energy Harvesting</strong>: Piezoelectric systems that exploit resonance.  </li>
+<li><strong>Suspension Bridges</strong>: Analyzing how periodic wind or vehicle loads can induce oscillations.  </li>
+<li><strong>RLC Circuits</strong>: Analogous electrical systems driven by alternating current.  </li>
+<li><strong>Biomechanics</strong>: Rhythmic systems like human gait.</li>
+</ul>
+<hr/>
+<h3 id="implementation">Implementation</h3>
+<p>Create a numerical simulation using <strong>Runge-Kutta</strong> methods (e.g., RK4 or <code>scipy.integrate.solve_ivp</code>).</p>
+<p>Tasks:</p>
+<ul>
+<li>Simulate time evolution of <span class="arithmatex">\( \theta(t) \)</span> for various parameters  </li>
+<li>Generate <strong>phase diagrams</strong> <span class="arithmatex">\( (\theta, \dot{\theta}) \)</span> </li>
+<li>Plot <strong>Poincaré sections</strong> to analyze periodicity and chaos  </li>
+<li>Visualize <strong>bifurcation diagrams</strong> over varying <span class="arithmatex">\( A \)</span> or <span class="arithmatex">\( \omega \)</span></li>
+</ul>
+<hr/>
+<h3 id="deliverables">Deliverables</h3>
+<ul>
+<li>A Markdown or HTML document with full theoretical background  </li>
+<li>Python notebook/script implementing the forced damped pendulum  </li>
+<li>Plots of motion under different damping and forcing conditions  </li>
+<li>Phase portraits and Poincaré maps showing system behavior  </li>
+<li>Bifurcation diagrams showing transitions to chaos  </li>
+<li>Discussion of limitations and extensions (e.g., nonlinear damping)</li>
+</ul>
+<hr/>
+<h3 id="hints-resources">Hints &amp; Resources</h3>
+<ul>
+<li>Use small-angle approximation <span class="arithmatex">\( \sin(\theta) \approx \theta \)</span> only when needed  </li>
+<li>Employ numerical methods (e.g., 4th-order Runge-Kutta) for accurate solutions  </li>
+<li>Analogies: Driven <strong>RLC circuits</strong>, <strong>metronomes</strong>, <strong>biological rhythms</strong> </li>
+<li>Use libraries like <code>numpy</code>, <code>matplotlib</code>, and <code>scipy</code> in Python</li>
+</ul>
+<hr/>
+<p>This task bridges <strong>theoretical physics</strong> and <strong>computational modeling</strong>, providing a deep understanding of <strong>forced damped oscillators</strong> and their wide-ranging applications.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
