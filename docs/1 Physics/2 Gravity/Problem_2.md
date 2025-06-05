@@ -5,7 +5,7 @@
 
 ---
 
-### 🎯 Motivation
+###  Motivation
 
 Understanding **escape velocity** and **cosmic velocities** is fundamental in space science and celestial mechanics. These velocities define the minimum speeds required to:
 
@@ -21,11 +21,11 @@ These principles enable:
 
 ---
 
-### 📐 Theoretical Foundation
+### Theoretical Foundation
 
 Let \( M \) be the mass of the central celestial body and \( R \) its radius.
 
-#### **1️⃣ First Cosmic Velocity** (orbital velocity)
+#### **1 First Cosmic Velocity** (orbital velocity)
 
 This is the velocity needed to stay in **stable circular orbit** near the surface:
 
@@ -33,7 +33,7 @@ $$
 v_1 = \sqrt{\frac{G M}{R}}
 $$
 
-#### **2️⃣ Second Cosmic Velocity** (escape velocity)
+#### **2 Second Cosmic Velocity** (escape velocity)
 
 This is the minimum velocity needed to **leave the gravitational field** of the body:
 
@@ -41,7 +41,7 @@ $$
 v_2 = \sqrt{2} \cdot v_1 = \sqrt{\frac{2 G M}{R}}
 $$
 
-#### **3️⃣ Third Cosmic Velocity**
+#### **3 Third Cosmic Velocity**
 
 The velocity needed to **escape the gravity of the star system**, e.g. leaving the Sun’s influence from Earth’s orbit:
 
@@ -53,7 +53,7 @@ Where \( v_{\text{orbit,planet}} \) is the orbital velocity of the planet around
 
 ---
 
-### 🧪 Numerical Examples
+###  Numerical Examples
 
 Using:
 
@@ -69,7 +69,7 @@ We can compute these velocities for:
 
 ---
 
-### 💻 Computational Implementation
+###  Computational Implementation
 
 #### Example Python Code:
 ```python
