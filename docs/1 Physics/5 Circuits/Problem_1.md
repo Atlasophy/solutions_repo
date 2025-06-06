@@ -1,57 +1,64 @@
-# Problem 1
-# Electromagnetism – Problem 1
+# Circuits – Problem 1
 
-## Simulating the Effects of the Lorentz Force
+## Equivalent Resistance Using Graph Theory
 
 ---
 
 ###  Motivation
 
-The **Lorentz Force**, defined by:
+Calculating **equivalent resistance** is crucial in circuit design and analysis. Traditional methods using series and parallel rules become inefficient for **complex networks**.
 
-$$
-\vec{F} = q (\vec{E} + \vec{v} \times \vec{B})
-$$
+By using **graph theory**, we can:
 
-is the fundamental law governing the motion of **charged particles** in **electric** and **magnetic fields**.
-
-This concept is crucial in:
-
--  Particle accelerators (e.g., cyclotrons, synchrotrons)  
--  Mass spectrometers  
--  Astrophysics and cosmic ray deflection  
--  Plasma confinement in fusion reactors
-
-Simulation offers an intuitive way to visualize these effects and better understand real-world applications.
+- Represent circuits as weighted graphs  
+- Systematically reduce complex topologies  
+- Automate simplification using algorithms  
+- Explore deeper connections between **electrical engineering** and **mathematics**
 
 ---
 
-## 1 Exploration of Applications
-
-### Real-World Systems
-
-| Application           | Role of Lorentz Force |
-|------------------------|------------------------|
-| Particle Accelerators  | Guides particles in circular paths with magnets |
-| Mass Spectrometers     | Separates ions by mass/charge ratio using \( \vec{E} \) and \( \vec{B} \) |
-| Magnetic Traps         | Constrains plasma particles using magnetic mirrors |
-| Earth’s Magnetosphere  | Deflects charged cosmic particles |
+##  Task Options
 
 ---
 
-## 2 Simulating Particle Motion
-
-We solve Newton’s second law for a charged particle:
-
-$$
-m \frac{d\vec{v}}{dt} = q (\vec{E} + \vec{v} \times \vec{B})
-$$
-
-Numerical integration (e.g., Euler, Runge-Kutta) allows us to simulate:
-
-- Motion in uniform \( \vec{B} \)-field  
-- Motion in uniform \( \vec{E} \)-field  
-- Crossed \( \vec{E} \) and \( \vec{B} \) fields
+###  OPTION 1: Algorithm Description (Simplified Task)
 
 ---
-[Simulation](circuitsim.html)
+
+###  Theoretical Foundation
+
+Represent the circuit as an **undirected graph**:
+
+- **Nodes**: Circuit junctions  
+- **Edges**: Resistors (with weights = resistance values)
+
+#### Key Concepts:
+
+- **Series Connection**: A node with degree 2 connecting two resistors  
+- **Parallel Connection**: Multiple edges between the same pair of nodes
+
+---
+
+###  Algorithm Steps
+
+1. **Input**: Graph \( G = (V, E) \) with weighted edges  
+2. **Repeat until only two nodes remain** (source and sink):
+
+   a. **Find all series nodes**:
+   - If a node has degree 2 and is not source/sink  
+   - Replace its two adjacent edges with one edge:
+     $$
+     R_{eq} = R_1 + R_2
+     $$
+
+   b. **Find all parallel edges**:
+   - If multiple edges connect the same node pair  
+   - Replace them with one edge:
+     $$
+     \frac{1}{R_{eq}} = \sum_{i} \frac{1}{R_i}
+     $$
+
+3. **Output**: The remaining edge's weight = equivalent resistance
+
+---
+[Simulation](Sim7.html)
