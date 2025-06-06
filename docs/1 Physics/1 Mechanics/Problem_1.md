@@ -73,17 +73,7 @@ $$
 
 - **Air Resistance**: Reduces range and shifts the optimal angle **below 45°**.
 - **Uneven Terrain**: Requires solving with a **non-zero final height**.
-- **Wind Effects**: Add lateral and vertical components that require solving **differential equations**.
-
----
-
-###  3D Simulation and Visualization
-
-- The range can be visualized as a function of the launch angle \( \theta \) using simulations.
-- 2D plots with `matplotlib` or 3D simulations using `plotly` or `vpython` can illustrate this.
-- Example plots: **Range vs. Angle** for different initial speeds.
-
----
+- **Wind Effects**: Add lateral and vertical components that require solving **differential equations**.---
 
 [Simulation](Sim1.html)
 
