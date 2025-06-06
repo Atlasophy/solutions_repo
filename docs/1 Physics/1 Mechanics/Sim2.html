@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forced Damped Pendulum Simulation</title>
+  <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    #graph {
+      width: 100%;
+      height: 500px;
+    }
+    label, input {
+      margin-top: 10px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h2>Forced Damped Pendulum</h2>
+
+  <label for="gamma">Damping Coefficient (γ):</label>
+  <input type="number" id="gamma" value="0.1" step="0.01">
+
+  <label for="amplitude">Driving Amplitude (A):</label>
+  <input type="number" id="amplitude" value="1.5" step="0.1">
+
+  <label for="omega">Driving Frequency (ω):</label>
+  <input type="number" id="omega" value="2.0" step="0.1">
+
+  <button onclick="simulate()">Simulate</button>
+
+  <div id="graph"></div>
+
+  <script>
+    function simulate() {
+      const gamma = parseFloat(document.getElementById('gamma').value);
+      const A = parseFloat(document.getElementById('amplitude').value);
+      const omega = parseFloat(document.getElementById('omega').value);
+
+      let dt = 0.01, T = 50;
+      let theta = 0.2, omega0 = 0;
+      const g = 9.81, l = 1;
+
+      let t = 0;
+      let theta_list = [], time_list = [];
+
+      while (t <= T) {
+        // Runge-Kutta 4th Order Method
+        let k1 = dt * omega0;
+        let l1 = dt * (-gamma * omega0 - (g / l) * Math.sin(theta) + A * Math.cos(omega * t));
+
+        let k2 = dt * (omega0 + l1 / 2);
+        let l2 = dt * (-gamma * (omega0 + l1 / 2) - (g / l) * Math.sin(theta + k1 / 2) + A * Math.cos(omega * (t + dt / 2)));
+
+        let k3 = dt * (omega0 + l2 / 2);
+        let l3 = dt * (-gamma * (omega0 + l2 / 2) - (g / l) * Math.sin(theta + k2 / 2) + A * Math.cos(omega * (t + dt / 2)));
+
+        let k4 = dt * (omega0 + l3);
+        let l4 = dt * (-gamma * (omega0 + l3) - (g / l) * Math.sin(theta + k3) + A * Math.cos(omega * (t + dt)));
+
+        theta += (k1 + 2*k2 + 2*k3 + k4) / 6;
+        omega0 += (l1 + 2*l2 + 2*l3 + l4) / 6;
+
+        theta_list.push(theta);
+        time_list.push(t);
+
+        t += dt;
+      }
+
+      Plotly.newPlot('graph', [{
+        x: time_list,
+        y: theta_list,
+        mode: 'lines',
+        line: { width: 2 },
+        name: 'θ(t)'
+      }], {
+        margin: { t: 30 },
+        title: 'Pendulum Angle vs Time',
+        xaxis: { title: 'Time (s)' },
+        yaxis: { title: 'Angle (rad)' }
+      });
+    }
+
+    simulate();
+  </script>
+</body>
+</html>

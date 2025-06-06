@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmic Velocities Simulation</title>
+  <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #eef2f3;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label, select, button {
+      font-size: 16px;
+      margin-top: 15px;
+      display: block;
+      width: 100%;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #graph {
+      margin-top: 30px;
+      width: 100%;
+      height: 500px;
+    }
+    .description {
+      margin-top: 20px;
+      font-size: 15px;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h2>Cosmic Velocities Visualization</h2>
+
+  <label for="planet">Select Celestial Body:</label>
+  <select id="planet">
+    <option value="earth">Earth</option>
+    <option value="mars">Mars</option>
+    <option value="jupiter">Jupiter</option>
+  </select>
+
+  <button onclick="plotVelocities()">Show Velocities</button>
+
+  <div id="graph"></div>
+
+  <div class="description">
+    <p><strong>First Cosmic Velocity:</strong> Minimum velocity to achieve a stable circular orbit just above the surface.</p>
+    <p><strong>Second Cosmic Velocity:</strong> Escape velocity needed to break free from the planet's gravity without further propulsion.</p>
+    <p><strong>Third Cosmic Velocity:</strong> Approximate velocity to leave the gravitational influence of the star (e.g., Sun for planets).</p>
+  </div>
+
+  <script>
+    const G = 6.67430e-11;
+
+    const planetData = {
+      earth: { mass: 5.972e24, radius: 6.371e6 },
+      mars: { mass: 6.417e23, radius: 3.3895e6 },
+      jupiter: { mass: 1.898e27, radius: 6.9911e7 }
+    };
+
+    function plotVelocities() {
+      const planet = document.getElementById('planet').value;
+      const { mass, radius } = planetData[planet];
+
+      const v1 = Math.sqrt(G * mass / radius);
+      const v2 = Math.sqrt(2 * G * mass / radius);
+      const v3 = Math.sqrt(2 * G * mass / radius * 2);
+
+      const velocities = [v1, v2, v3];
+      const labels = ['First Cosmic Velocity', 'Second Cosmic Velocity (Escape)', 'Third Cosmic Velocity'];
+
+      Plotly.newPlot('graph', [{
+        x: labels,
+        y: velocities,
+        type: 'bar',
+        marker: { color: ['#66c2a5', '#fc8d62', '#8da0cb'] },
+        name: `${planet.charAt(0).toUpperCase() + planet.slice(1)}`
+      }], {
+        title: `Cosmic Velocities for ${planet.charAt(0).toUpperCase() + planet.slice(1)}`,
+        yaxis: {
+          title: 'Velocity (m/s)',
+          gridcolor: '#ddd'
+        },
+        xaxis: {
+          title: 'Velocity Type'
+        },
+        margin: { t: 60 },
+        plot_bgcolor: '#ffffff',
+        paper_bgcolor: '#ffffff'
+      });
+    }
+
+    plotVelocities();
+  </script>
+</body>
+</html>

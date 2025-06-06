@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbital Periods & Escape Velocities</title>
+  <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    label, input, select {
+      display: block;
+      margin-top: 10px;
+    }
+    #graph {
+      margin-top: 30px;
+      width: 100%;
+      height: 500px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Orbital Period vs Radius & Escape Velocities</h2>
+
+  <label for="planet">Select Celestial Body:</label>
+  <select id="planet">
+    <option value="earth">Earth</option>
+    <option value="mars">Mars</option>
+    <option value="jupiter">Jupiter</option>
+  </select>
+
+  <label for="radius">Orbital Radius (km × 10³):</label>
+  <input type="range" id="radius" min="100" max="500" value="200" oninput="document.getElementById('rval').innerText=this.value">
+  <span id="rval">200</span>
+
+  <button onclick="simulate()">Simulate</button>
+
+  <div id="graph"></div>
+
+  <script>
+    const G = 6.67430e-11;
+    const planetData = {
+      earth: { mass: 5.972e24, radius: 6.371e6 },
+      mars: { mass: 6.417e23, radius: 3.3895e6 },
+      jupiter: { mass: 1.898e27, radius: 6.9911e7 }
+    };
+
+    function simulate() {
+      const planet = document.getElementById('planet').value;
+      const radiusInput = parseFloat(document.getElementById('radius').value) * 1e6; // convert from 10³ km to meters
+      const { mass, radius } = planetData[planet];
+
+      const orbitalPeriod = 2 * Math.PI * Math.sqrt(Math.pow(radiusInput, 3) / (G * mass));
+      const escapeVelocity = Math.sqrt(2 * G * mass / radius);
+      const firstCosmic = Math.sqrt(G * mass / radius);
+      const secondCosmic = escapeVelocity;
+      const thirdCosmic = Math.sqrt(G * mass / radius * 2); // approx
+
+      Plotly.newPlot('graph', [
+        {
+          x: ['First Cosmic', 'Second Cosmic (Escape)', 'Third Cosmic (Solar Escape)'],
+          y: [firstCosmic, secondCosmic, thirdCosmic],
+          type: 'bar',
+          marker: { color: ['#66c2a5','#fc8d62','#8da0cb'] },
+          name: 'Velocities (m/s)'
+        },
+        {
+          x: ['Orbital Period'],
+          y: [orbitalPeriod / 3600],
+          type: 'bar',
+          marker: { color: ['#e78ac3'] },
+          name: 'Period (hours)',
+          yaxis: 'y2'
+        }
+      ], {
+        title: `Orbital and Escape Characteristics for ${planet.charAt(0).toUpperCase() + planet.slice(1)}`,
+        yaxis: {
+          title: 'Velocity (m/s)',
+          side: 'left'
+        },
+        yaxis2: {
+          title: 'Orbital Period (hours)',
+          overlaying: 'y',
+          side: 'right',
+          showgrid: false
+        },
+        barmode: 'group'
+      });
+    }
+
+    simulate();
+  </script>
+</body>
+</html>
