@@ -74,8 +74,6 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#problem-statement">Problem Statement</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#python-simulation">Python Simulation</a>
-</li>
 </ul>
 </li>
 </ul>
@@ -232,46 +230,6 @@
 <li><strong>Interpret</strong>: Identify constructive and destructive regions.</li>
 </ol>
 <hr/>
-<h3 id="python-simulation">Python Simulation</h3>
-<h4 id="example-code-square-configuration">Example Code (Square Configuration)</h4>
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt</p>
-<h1 id="constants">Constants</h1>
-<p>A = 1.0            # amplitude
-wavelength = 1.0   # lambda
-frequency = 1.0    # f
-k = 2 * np.pi / wavelength
-omega = 2 * np.pi * frequency
-t = 0              # fixed time</p>
-<h1 id="source-positions-at-square-vertices">Source positions at square vertices</h1>
-<p>side = 2.0
-polygon_sides = 4
-radius = 1.0
-sources = [
-    (radius * np.cos(2<em>np.pi</em>i/polygon_sides),
-     radius * np.sin(2<em>np.pi</em>i/polygon_sides))
-    for i in range(polygon_sides)
-]</p>
-<h1 id="grid">Grid</h1>
-<p>res = 500
-x = np.linspace(-2, 2, res)
-y = np.linspace(-2, 2, res)
-X, Y = np.meshgrid(x, y)
-Z = np.zeros_like(X)</p>
-<h1 id="superposition">Superposition</h1>
-<p>for sx, sy in sources:
-    R = np.sqrt((X - sx)<strong>2 + (Y - sy)</strong>2)
-    Z += A * np.cos(k * R - omega * t)</p>
-<h1 id="plot">Plot</h1>
-<p>plt.figure(figsize=(8, 6))
-plt.contourf(X, Y, Z, levels=200, cmap='RdBu')
-plt.colorbar(label='Displacement η(x, y)')
-plt.title('Interference Pattern – Square Wave Sources')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.axis('equal')
-plt.show()</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
