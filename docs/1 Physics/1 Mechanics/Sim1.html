@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projectile Range vs Angle</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    canvas {
+      max-width: 100%;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    label, input {
+      margin-top: 10px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h2>Projectile Range Simulation</h2>
+
+  <label for="velocity">Initial Velocity (m/s):</label>
+  <input type="number" id="velocity" value="30" min="1" step="1" />
+
+  <label for="gravity">Gravity (m/s²):</label>
+  <input type="number" id="gravity" value="9.81" min="0.1" step="0.1" />
+
+  <button onclick="simulate()">Simulate</button>
+
+  <canvas id="rangeChart" width="800" height="400"></canvas>
+
+  <script>
+    function simulate() {
+      const velocity = parseFloat(document.getElementById('velocity').value);
+      const gravity = parseFloat(document.getElementById('gravity').value);
+
+      const angles = [];
+      const ranges = [];
+
+      for (let theta = 0; theta <= 90; theta += 1) {
+        const radians = theta * (Math.PI / 180);
+        const range = (Math.pow(velocity, 2) * Math.sin(2 * radians)) / gravity;
+        angles.push(theta);
+        ranges.push(range);
+      }
+
+      const ctx = document.getElementById('rangeChart').getContext('2d');
+
+      if (window.myChart) {
+        window.myChart.destroy();
+      }
+
+      window.myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: angles,
+          datasets: [{
+            label: 'Range (m)',
+            data: ranges,
+            borderWidth: 2,
+            fill: false,
+            tension: 0.1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Angle (degrees)'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Range (meters)'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    simulate();
+  </script>
+</body>
+</html>
+
+[Simulation](Sim1.html)
+
