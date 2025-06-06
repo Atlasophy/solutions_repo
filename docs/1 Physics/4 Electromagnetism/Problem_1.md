@@ -18,9 +18,9 @@ is the fundamental law governing the motion of **charged particles** in **electr
 This concept is crucial in:
 
 -  Particle accelerators (e.g., cyclotrons, synchrotrons)  
--  Mass spectrometers  
--  Astrophysics and cosmic ray deflection  
--  Plasma confinement in fusion reactors
+-  Mass spectrometers.  
+-  Astrophysics and cosmic ray deflection.  
+-  Plasma confinement in fusion reactors.
 
 Simulation offers an intuitive way to visualize these effects and better understand real-world applications.
 
