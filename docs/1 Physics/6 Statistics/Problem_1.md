@@ -53,33 +53,4 @@ Expected behavior:
 
 ---
 
-###  Python Code Snippet (Uniform Example)
 
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-np.random.seed(42)
-
-# Generate a uniform population
-population = np.random.uniform(0, 1, size=100000)
-
-# Function to sample and calculate sample means
-def sample_means(dist, n, reps=1000):
-    return [np.mean(np.random.choice(dist, n)) for _ in range(reps)]
-
-sample_sizes = [5, 10, 30, 50]
-plt.figure(figsize=(12, 8))
-
-for i, n in enumerate(sample_sizes, 1):
-    means = sample_means(population, n)
-    plt.subplot(2, 2, i)
-    sns.histplot(means, bins=30, kde=True, color='skyblue')
-    plt.title(f'Sample Size = {n}')
-    plt.xlabel('Sample Mean')
-    plt.ylabel('Frequency')
-
-plt.tight_layout()
-plt.suptitle("Sampling Distribution of Sample Mean (Uniform)", y=1.02)
-plt.show()
