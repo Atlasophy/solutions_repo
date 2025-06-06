@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Circuits – Problem 1 - Physics and Mathematics</title>
+<title>Problem 1 - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Circuits \u2013 Problem 1";
+        var mkdocs_page_name = "Problem 1";
         var mkdocs_page_input_path = "1 Physics/4 Electromagnetism/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -70,24 +70,8 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">4 Electromagnetism</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Circuits – Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#equivalent-resistance-using-graph-theory">Equivalent Resistance Using Graph Theory</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#motivation">Motivation</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#task-options">Task Options</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#option-1-algorithm-description-simplified-task">OPTION 1: Algorithm Description (Simplified Task)</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#theoretical-foundation">Theoretical Foundation</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#algorithm-steps">Algorithm Steps</a>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -179,7 +163,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">4 Electromagnetism</li>
-<li class="breadcrumb-item active">Circuits – Problem 1</li>
+<li class="breadcrumb-item active">Problem 1</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -187,57 +171,67 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="circuits-problem-1">Circuits – Problem 1</h1>
-<h2 id="equivalent-resistance-using-graph-theory">Equivalent Resistance Using Graph Theory</h2>
+<h1 id="problem-1">Problem 1</h1>
+<h1 id="electromagnetism-problem-1">Electromagnetism – Problem 1</h1>
+<h2 id="simulating-the-effects-of-the-lorentz-force">Simulating the Effects of the Lorentz Force</h2>
 <hr/>
 <h3 id="motivation">Motivation</h3>
-<p>Calculating <strong>equivalent resistance</strong> is crucial in circuit design and analysis. Traditional methods using series and parallel rules become inefficient for <strong>complex networks</strong>.</p>
-<p>By using <strong>graph theory</strong>, we can:</p>
+<p>The <strong>Lorentz Force</strong>, defined by:</p>
+<div class="arithmatex">\[
+\vec{F} = q (\vec{E} + \vec{v} \times \vec{B})
+\]</div>
+<p>is the fundamental law governing the motion of <strong>charged particles</strong> in <strong>electric</strong> and <strong>magnetic fields</strong>.</p>
+<p>This concept is crucial in:</p>
 <ul>
-<li>Represent circuits as weighted graphs  </li>
-<li>Systematically reduce complex topologies  </li>
-<li>Automate simplification using algorithms  </li>
-<li>Explore deeper connections between <strong>electrical engineering</strong> and <strong>mathematics</strong></li>
+<li>Particle accelerators (e.g., cyclotrons, synchrotrons)  </li>
+<li>Mass spectrometers  </li>
+<li>Astrophysics and cosmic ray deflection  </li>
+<li>Plasma confinement in fusion reactors</li>
+</ul>
+<p>Simulation offers an intuitive way to visualize these effects and better understand real-world applications.</p>
+<hr/>
+<h2 id="1-exploration-of-applications">1 Exploration of Applications</h2>
+<h3 id="real-world-systems">Real-World Systems</h3>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Role of Lorentz Force</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Particle Accelerators</td>
+<td>Guides particles in circular paths with magnets</td>
+</tr>
+<tr>
+<td>Mass Spectrometers</td>
+<td>Separates ions by mass/charge ratio using <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span></td>
+</tr>
+<tr>
+<td>Magnetic Traps</td>
+<td>Constrains plasma particles using magnetic mirrors</td>
+</tr>
+<tr>
+<td>Earth’s Magnetosphere</td>
+<td>Deflects charged cosmic particles</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="2-simulating-particle-motion">2 Simulating Particle Motion</h2>
+<p>We solve Newton’s second law for a charged particle:</p>
+<div class="arithmatex">\[
+m \frac{d\vec{v}}{dt} = q (\vec{E} + \vec{v} \times \vec{B})
+\]</div>
+<p>Numerical integration (e.g., Euler, Runge-Kutta) allows us to simulate:</p>
+<ul>
+<li>Motion in uniform <span class="arithmatex">\( \vec{B} \)</span>-field  </li>
+<li>Motion in uniform <span class="arithmatex">\( \vec{E} \)</span>-field  </li>
+<li>Crossed <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span> fields</li>
 </ul>
 <hr/>
-<h2 id="task-options">Task Options</h2>
-<hr/>
-<h3 id="option-1-algorithm-description-simplified-task">OPTION 1: Algorithm Description (Simplified Task)</h3>
-<hr/>
-<h3 id="theoretical-foundation">Theoretical Foundation</h3>
-<p>Represent the circuit as an <strong>undirected graph</strong>:</p>
-<ul>
-<li><strong>Nodes</strong>: Circuit junctions  </li>
-<li><strong>Edges</strong>: Resistors (with weights = resistance values)</li>
-</ul>
-<h4 id="key-concepts">Key Concepts:</h4>
-<ul>
-<li><strong>Series Connection</strong>: A node with degree 2 connecting two resistors  </li>
-<li><strong>Parallel Connection</strong>: Multiple edges between the same pair of nodes</li>
-</ul>
-<hr/>
-<h3 id="algorithm-steps">Algorithm Steps</h3>
-<ol>
-<li><strong>Input</strong>: Graph <span class="arithmatex">\( G = (V, E) \)</span> with weighted edges  </li>
-<li><strong>Repeat until only two nodes remain</strong> (source and sink):</li>
-</ol>
-<p>a. <strong>Find all series nodes</strong>:
-   - If a node has degree 2 and is not source/sink<br/>
-   - Replace its two adjacent edges with one edge:
-     $$
-     R_{eq} = R_1 + R_2
-     $$</p>
-<p>b. <strong>Find all parallel edges</strong>:
-   - If multiple edges connect the same node pair<br/>
-   - Replace them with one edge:
-     $$
-     \frac{1}{R_{eq}} = \sum_{i} \frac{1}{R_i}
-     $$</p>
-<ol>
-<li><strong>Output</strong>: The remaining edge's weight = equivalent resistance</li>
-</ol>
-<hr/>
-<p><a href="../Sim7.html">Simulation</a></p>
+<p><a href="circuitsim.html">Simulation</a></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
