@@ -173,4 +173,5 @@ $$
 - Repeat with a digital timer for more precision
 
 ---
+[Simulation](Measurementsim.html)
 
