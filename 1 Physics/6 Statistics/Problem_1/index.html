@@ -216,29 +216,6 @@
 <li>Larger <span class="arithmatex">\( n \)</span>: Sampling distribution approaches a <strong>bell-shaped</strong> curve</li>
 </ul>
 <hr/>
-<h3 id="python-code-snippet-uniform-example">Python Code Snippet (Uniform Example)</h3>
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns</p>
-<p>np.random.seed(42)</p>
-<h1 id="generate-a-uniform-population">Generate a uniform population</h1>
-<p>population = np.random.uniform(0, 1, size=100000)</p>
-<h1 id="function-to-sample-and-calculate-sample-means">Function to sample and calculate sample means</h1>
-<p>def sample_means(dist, n, reps=1000):
-    return [np.mean(np.random.choice(dist, n)) for _ in range(reps)]</p>
-<p>sample_sizes = [5, 10, 30, 50]
-plt.figure(figsize=(12, 8))</p>
-<p>for i, n in enumerate(sample_sizes, 1):
-    means = sample_means(population, n)
-    plt.subplot(2, 2, i)
-    sns.histplot(means, bins=30, kde=True, color='skyblue')
-    plt.title(f'Sample Size = {n}')
-    plt.xlabel('Sample Mean')
-    plt.ylabel('Frequency')</p>
-<p>plt.tight_layout()
-plt.suptitle("Sampling Distribution of Sample Mean (Uniform)", y=1.02)
-plt.show()</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
