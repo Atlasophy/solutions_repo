@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equivalent Resistance Calculator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      padding: 30px;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      margin-bottom: 15px;
+      font-family: monospace;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Equivalent Resistance Using Graph Theory</h2>
+
+  <p>Enter resistor network as adjacency list. Format: <code>["A-B=5", "B-C=10", "C-A=20"]</code></p>
+  <textarea id="inputGraph">["A-B=5", "B-C=10", "C-A=20"]</textarea>
+  <button onclick="calculateResistance()">Calculate Equivalent Resistance (A to C)</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculateResistance() {
+      const input = document.getElementById("inputGraph").value;
+      let edges;
+      try {
+        edges = eval(input);
+      } catch {
+        document.getElementById("result").innerText = "Invalid input format.";
+        return;
+      }
+
+      const nodes = new Set();
+      const graph = {};
+
+      for (const entry of edges) {
+        const [pair, val] = entry.split("=");
+        const [u, v] = pair.split("-");
+        const r = parseFloat(val);
+        nodes.add(u);
+        nodes.add(v);
+        if (!graph[u]) graph[u] = {};
+        if (!graph[v]) graph[v] = {};
+        graph[u][v] = 1 / r;
+        graph[v][u] = 1 / r;
+      }
+
+      const nArr = Array.from(nodes);
+      const n = nArr.length;
+      const idx = {};
+      nArr.forEach((node, i) => idx[node] = i);
+      const Y = math.zeros(n, n)._data;
+
+      for (let i = 0; i < n; i++) {
+        const u = nArr[i];
+        for (const v in graph[u]) {
+          const j = idx[v];
+          Y[i][j] -= graph[u][v];
+          Y[i][i] += graph[u][v];
+        }
+      }
+
+      const source = idx['A'];
+      const target = idx['C'];
+      const Y_mod = Y.filter((_, i) => i !== target).map(row => row.filter((_, j) => j !== target));
+      const b = Array(n - 1).fill(0);
+      b[source > target ? source - 1 : source] = 1;
+
+      const V = math.lusolve(Y_mod, b).map(e => e[0]);
+      const Vsource = V[source > target ? source - 1 : source];
+      const Itotal = 1;
+      const Req = Vsource / Itotal;
+
+      document.getElementById("result").innerText = `Equivalent Resistance between A and C: ${Req.toFixed(4)} ohms`;
+    }
+  </script>
+</body>
+</html>
