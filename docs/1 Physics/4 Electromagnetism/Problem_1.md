@@ -61,18 +61,4 @@ Represent the circuit as an **undirected graph**:
 3. **Output**: The remaining edge's weight = equivalent resistance
 
 ---
-
-###  Pseudocode
-
-```text
-function calculateEquivalentResistance(graph, source, sink):
-    while graph has more than two nodes:
-        for node in graph.nodes:
-            if degree(node) == 2 and node not in [source, sink]:
-                combineSeries(node)
-
-        for each (u, v) in graph:
-            if multiple edges exist between u and v:
-                combineParallel(u, v)
-
-    return weight of edge between source and sink
+[Simulation](Electromagnetism/Sim7.html)
