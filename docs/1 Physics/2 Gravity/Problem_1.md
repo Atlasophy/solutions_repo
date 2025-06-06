@@ -87,11 +87,6 @@ Where:
 
 ---
 
-###  Computational Implementation
 
-Simulate circular orbits with a Python program. Given \( M \), simulate values of \( r \), compute \( T \), and plot:
-
-- \( T^2 \) vs. \( r^3 \)
-- Orbit paths for visualization
 
 [Simulation](Gravity1.html)

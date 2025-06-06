@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monte Carlo π Estimation</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f7f7f7;
+      padding: 20px;
+    }
+    canvas {
+      background: #ffffff;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+    label, input {
+      display: block;
+      margin-top: 10px;
+    }
+    #pi-estimate {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Monte Carlo Estimation of π</h2>
+
+  <label>Number of Points:</label>
+  <input type="number" id="numPoints" value="1000" min="100" step="100">
+  <button onclick="simulatePi()">Run Simulation</button>
+
+  <div id="pi-estimate"></div>
+  <canvas id="circlePlot" width="400" height="400"></canvas>
+
+  <script>
+    function simulatePi() {
+      const N = parseInt(document.getElementById("numPoints").value);
+      const canvas = document.getElementById("circlePlot");
+      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      let inside = 0;
+      const pointsInside = [];
+      const pointsOutside = [];
+
+      for (let i = 0; i < N; i++) {
+        const x = Math.random();
+        const y = Math.random();
+        const dx = x - 0.5;
+        const dy = y - 0.5;
+        const r = 0.5;
+
+        const isInside = dx * dx + dy * dy <= r * r;
+        if (isInside) {
+          inside++;
+          pointsInside.push([x, y]);
+        } else {
+          pointsOutside.push([x, y]);
+        }
+      }
+
+      const piEstimate = (inside / N) * 4;
+      document.getElementById("pi-estimate").innerText = `Estimated π ≈ ${piEstimate.toFixed(6)} (using ${N} points)`;
+
+      ctx.fillStyle = 'green';
+      for (const [x, y] of pointsInside) {
+        ctx.fillRect(x * canvas.width, y * canvas.height, 2, 2);
+      }
+
+      ctx.fillStyle = 'red';
+      for (const [x, y] of pointsOutside) {
+        ctx.fillRect(x * canvas.width, y * canvas.height, 2, 2);
+      }
+
+      ctx.strokeStyle = '#333';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, canvas.width / 2, 0, 2 * Math.PI);
+      ctx.stroke();
+    }
+
+    simulatePi();
+  </script>
+</body>
+</html>

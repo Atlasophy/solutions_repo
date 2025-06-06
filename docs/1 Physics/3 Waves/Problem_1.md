@@ -59,4 +59,4 @@ $$
 6. **Interpret**: Identify constructive and destructive regions.
 
 ---
-[Simulation](Waves/Sim6.html)
+[Simulation](Sim6.html)
