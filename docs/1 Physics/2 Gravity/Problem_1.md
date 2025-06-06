@@ -94,4 +94,4 @@ Simulate circular orbits with a Python program. Given \( M \), simulate values o
 - \( T^2 \) vs. \( r^3 \)
 - Orbit paths for visualization
 
-[Simulation](Gravity/Sim3.html)
+[Simulation](Gravity1.html)
