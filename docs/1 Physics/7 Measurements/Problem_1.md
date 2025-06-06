@@ -144,33 +144,7 @@ $$
 - **Timing variability**: Manual stopwatch leads to uncertainty in \( T \)
 - **Experimental assumptions**:
   - Small angle approximation valid only for θ < 15°
-  - Neglects air resistance and friction
-
----
-
-##  Deliverables
-
-###  Markdown Output:
-
-- 📊 Table with raw data \( t_{10} \)  
-- 📉 Calculated:
-  - \( T \), \( u_T \), \( g \), \( u_g \)  
-- 📈 Final result with uncertainty
-
-###  Interpretation:
-
-- Comparison with standard gravity  
-- Discussion on uncertainty sources  
-- Suggestions for improvement (e.g., photogates, longer pendulums)
-
----
-
-##  Hints & Extensions
-
-- Try different lengths to test \( T \propto \sqrt{L} \)  
-- Plot \( T^2 \) vs \( L \) and fit a line to estimate \( g \)  
-- Use statistical tools (e.g., `numpy.std`, `scipy.stats.sem`)  
-- Repeat with a digital timer for more precision
+  - Neglects air resistance and friction-
 
 ---
 [Simulation](Measurementsim.html)
