@@ -61,4 +61,4 @@ Represent the circuit as an **undirected graph**:
 3. **Output**: The remaining edge's weight = equivalent resistance
 
 ---
-[Simulation](Electromagnetism/Sim7.html)
+[Simulation](Sim7.html)
