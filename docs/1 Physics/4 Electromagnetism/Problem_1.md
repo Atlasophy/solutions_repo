@@ -54,4 +54,4 @@ Numerical integration (e.g., Euler, Runge-Kutta) allows us to simulate:
 - Crossed \( \vec{E} \) and \( \vec{B} \) fields
 
 ---
-[Simulation](circuitsim.html)
+[Simulation](sim7.html)
